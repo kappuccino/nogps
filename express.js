@@ -2,7 +2,8 @@ var express = require('express')
 	, exphbs  = require('express-handlebars')
 	, logger = require('morgan')
 	, bodyParser = require('body-parser')
-	, errorHandler = require('errorhandler');
+	, errorHandler = require('errorhandler')
+	, tools = require('./app/tools');
 
 var server, app, hbs;
 
@@ -16,14 +17,13 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 app.set("views", 'app/front/views');
-app.set('port', 3000);
+app.set('port', 5000);
 app.set('env', 'dev');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(errorHandler());
-
 
 function start(cb){
 
@@ -32,6 +32,7 @@ function start(cb){
 
 	// Let's go
 	server = app.listen(app.get('port'), function(){
+		tools.logger.debug('Express started', server.address().address, app.get('port'));
 		if(cb) cb(app);
 	});
 
@@ -39,6 +40,7 @@ function start(cb){
 
 function stop(cb){
 	server.close();
+	tools.logger.debug('Express stopped');
 	if(cb) cb(server);
 }
 
