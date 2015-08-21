@@ -1,0 +1,20 @@
+{
+  "restartable": "rst",
+  "verbose": true,
+  "delay": 250,
+  "ignore": [
+    ".DS_Store",
+    ".idea/*",
+    "*.jpg",
+    ".git",
+    "tmp",
+    "cache",
+    "logs/**",
+    "node_modules/**/node_modules",
+    "heapdump*"
+  ],
+
+  "_watch": [
+    "app/**/*"
+  ]
+}

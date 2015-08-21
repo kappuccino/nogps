@@ -1,0 +1,23 @@
+{
+  "name": "no-gps",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node ./tests/all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "morgan": "^1.6.1",
+    "request": "^2.61.0",
+    "winston": "^1.0.1"
+  },
+  "devDependencies": {
+    "tape": "^4.2.0"
+  }
+}
